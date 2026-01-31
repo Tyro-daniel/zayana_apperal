@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>𝚉𝚊𝚢𝚊𝚗𝚊 𝙰𝚙𝚙𝚎𝚛𝚊𝚕</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+/* ---------- GLOBAL ---------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'monospace'; /* Unicode font style everywhere */
+}
+
+body {
+  background: #f2f2f2;
+  color: #333;
+}
+
+/* ---------- TOP BAR ---------- */
+.top-bar {
+  background: #1c1c1c;
+  color: #ccc;
+  font-size: 14px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 25px;
+  padding: 8px 40px;
+}
+
+.top-bar a {
+  color: #ccc;
+  text-decoration: none;
+  transition: 0.2s;
+}
+
+.top-bar a:hover {
+  color: white;
+}
+
+/* ---------- HEADER ---------- */
+header {
+  background: #2e2e2e;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+  position: sticky;
+  top: 0;
+  z-index: 1001;
+}
+
+/* Logo */
+.header-left h1 {
+  color: white; 
+  font-size: 26px;
+  cursor: pointer;
+}
+
+/* Navigation */
+.header-nav {
+  display: flex;
+  gap: 25px;
+}
+
+.header-nav a {
+  color: #ddd;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.2s;
+}
+
+.header-nav a:hover {
+  color: white;
+}
+
+/* Right section */
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.search-box {
+  padding: 5px 10px;
+  border-radius: 20px;
+  border: 1px solid #b30000;
+  outline: none;
+  transition: 0.2s;
+}
+
+.search-box:focus {
+  border-color: #800000;
+}
+
+.header-right a {
+  color: #ddd;
+  font-size: 20px;
+  text-decoration: none;
+  transition: 0.2s;
+}
+
+.header-right a:hover {
+  color: white;
+}
+
+/* Hamburger Menu */
+.hamburger {
+  display: none;
+  font-size: 26px;
+  color: #ddd;
+  cursor: pointer;
+}
+
+/* ---------- HERO ---------- */
+.hero {
+  background: linear-gradient(rgba(179,0,0,0.3), rgba(179,0,0,0.3)), url('hero.JPG') center/cover no-repeat;
+  color: white;
+  text-align: center;
+  padding: 120px 20px;
+  transition: background-image 1s ease-in-out; /* smooth fade for background */
+}
+
+.hero h2 {
+  font-size: 48px;
+}
+
+.hero p {
+  margin: 15px 0;
+  font-size: 18px;
+}
+
+.hero button {
+  background: #b30000;
+  color: white;
+  border: none;
+  padding: 14px 35px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.hero button:hover {
+  background: #800000;
+}
+
+/* ---------- SECTIONS ---------- */
+section {
+  padding: 60px 40px;
+  text-align: center;
+}
+
+section h2 {
+  margin-bottom: 40px;
+  color: #2e2e2e;
+  font-size: 32px;
+}
+
+/* ---------- CATEGORIES ---------- */
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 25px;
+}
+
+.category {
+  background: white;
+  padding: 40px;
+  border-radius: 10px;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  border: 2px solid #b30000;
+  transition: 0.3s;
+}
+
+.category:hover {
+  background: #b30000;
+  color: white;
+}
+
+/* ---------- PRODUCTS ---------- */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+}
+
+.product {
+  background: white;
+  border-radius: 10px;
+  padding: 20px;
+  transition: 0.3s;
+}
+
+.product:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+
+.product img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.product h3 {
+  margin: 15px 0 5px;
+}
+
+.product p {
+  color: #b30000;
+  font-weight: bold;
+}
+
+.product button {
+  background: #2e2e2e;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.product button:hover {
+  background: #b30000;
+}
+
+/* ---------- FEATURES ---------- */
+.features {
+  background: #2e2e2e;
+  color: white;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 30px;
+  padding: 60px 40px;
+}
+
+.feature {
+  font-size: 18px;
+}
+
+/* ---------- CTA ---------- */
+.cta {
+  background: #b30000;
+  color: white;
+  padding: 60px 40px;
+}
+
+.cta button {
+  margin-top: 20px;
+  background: white;
+  color: #b30000;
+  border: none;
+  padding: 12px 30px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* ---------- NEWSLETTER ---------- */
+.newsletter input {
+  padding: 12px;
+  width: 250px;
+  margin-right: 10px;
+}
+
+.newsletter button {
+  padding: 12px 20px;
+  background: #b30000;
+  color: white;
+  border: none;
+}
+
+/* ---------- MESSAGE ---------- */
+.message {
+  margin-top: 20px;
+  color: green;
+  display: none;
+  font-weight: bold;
+}
+
+/* ---------- FOOTER ---------- */
+footer {
+  background: #2e2e2e;
+  color: #ccc;
+  text-align: center;
+  padding: 20px;
+}
+
+footer span {
+  color: #b30000;
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 768px) {
+  body {
+    overflow-x: hidden;
+  }
+
+  .hero h2 {
+    font-size: 36px;
+  }
+
+  .hero p {
+    font-size: 16px;
+  }
+
+  .category-grid,
+  .product-grid,
+  .features {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .header-nav {
+    position: fixed;
+    top: 0;
+    right: -250px;
+    height: 100%;
+    width: 250px;
+    background: #2e2e2e;
+    flex-direction: column;
+    padding-top: 60px;
+    gap: 20px;
+    transition: right 0.3s ease;
+    z-index: 1002;
+  }
+
+  .header-nav a {
+    padding: 15px 20px;
+    font-size: 18px;
+  }
+
+  .header-nav.active {
+    right: 0;
+  }
+
+  .top-bar {
+    display: none;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  .header-right {
+    gap: 10px;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- Top Utility Bar -->
+<div class="top-bar" id="topBar">
+  <a href="#">𝙵𝚒𝚗𝚍 𝚊 𝚂𝚝𝚘𝚛𝚎</a>
+  <a href="#">𝙷𝚎𝚕𝚙</a>
+  <a href="#">𝙹𝚘𝚒𝚗 𝚄𝚜</a>
+  <a href="#">𝚂𝚒𝚐𝚗 𝙸𝚗</a>
+</div>
+
+<header>
+  <div class="header-left">
+    <h1>𝚉𝚊𝚢𝚊𝚗𝚊 𝙰𝚙𝚙𝚎𝚛𝚊𝚕</h1>
+  </div>
+  
+  <nav class="header-nav" id="navMenu">
+    <a href="#">𝙷𝚘𝚖𝚎</a>
+    <a href="#">𝚂𝚑𝚘𝚙</a>
+    <a href="#">𝙼𝚎𝚗</a>
+    <a href="#">𝚆𝚘𝚖𝚎𝚗</a>
+    <a href="#">𝚂𝚊𝚕𝚎</a>
+    <a href="#">𝙲𝚘𝚗𝚝𝚊𝚌𝚝</a>
+  </nav>
+
+  <div class="header-right">
+    <input type="text" placeholder="𝚂𝚎𝚊𝚛𝚌𝚑.." class="search-box">
+    <a href="#" title="𝙰𝚌𝚌𝚘𝚞𝚗𝚝">👤</a>
+    <a href="#" title="𝙲𝚊𝚛𝚝">🛒</a>
+    <span class="hamburger" id="hamburger">☰</span>
+  </div>
+</header>
+
+<section class="hero" id="hero">
+  <h2>𝙳𝚛𝚎𝚜𝚜 𝙱𝚘𝚕𝚍. 𝙳𝚛𝚎𝚜𝚜 𝚁𝚎𝚍.</h2>
+  <p>𝙼𝚘𝚍𝚎𝚛𝚗 𝚏𝚊𝚜𝚑𝚒𝚘𝚗 𝚏𝚘𝚛 𝚌𝚘𝚗𝚏𝚒𝚍𝚎𝚗𝚝 𝚙𝚎𝚘𝚙𝚕𝚎</p>
+  <button onclick="scrollToProducts()">𝚂𝚑𝚘𝚙 𝙽𝚘𝚠</button>
+</section>
+
+<section>
+  <h2>𝚂𝚑𝚘𝚙 𝚋𝚢 𝙲𝚊𝚝𝚎𝚐𝚘𝚛𝚢</h2>
+  <div class="category-grid">
+    <div class="category">𝙼𝚎𝚗</div>
+    <div class="category">𝚆𝚘𝚖𝚎𝚗</div>
+    <div class="category">𝙽𝚎𝚠 𝙰𝚛𝚛𝚒𝚟𝚊𝚕𝚜</div>
+    <div class="category">𝙰𝚌𝚌𝚎𝚜𝚜𝚘𝚛𝚒𝚎𝚜</div>
+  </div>
+</section>
+
+<section id="products">
+  <h2>𝙵𝚎𝚊𝚝𝚞𝚛𝚎𝚍 𝙿𝚛𝚘𝚍𝚞𝚌𝚝𝚜</h2>
+  <div class="product-grid">
+    <div class="product">
+      <img src="hero.JPG" alt="𝚁𝚎𝚍 𝚃-𝚂𝚑𝚒𝚛𝚝">
+      <h3>𝚁𝚎𝚍 𝚃-𝚂𝚑𝚒𝚛𝚝</h3>
+      <p>$25.00</p>
+      <button onclick="addToCart('Red T-Shirt')">𝙰𝚍𝚍 𝚝𝚘 𝙲𝚊𝚛𝚝</button>
+    </div>
+    <div class="product">
+      <img src="hero1.JPG" alt="𝙵𝚊𝚜𝚑𝚒𝚘𝚗 𝙹𝚊𝚌𝚔𝚎𝚝">
+      <h3>𝙵𝚊𝚜𝚑𝚒𝚘𝚗 𝙹𝚊𝚌𝚔𝚎𝚝</h3>
+      <p>$80.00</p>
+      <button onclick="addToCart('Fashion Jacket')">𝙰𝚍𝚍 𝚝𝚘 𝙲𝚊𝚛𝚝</button>
+    </div>
+    <div class="product">
+      <img src="hero2.jpg" alt="𝙴𝚕𝚎𝚐𝚊𝚗𝚝 𝙳𝚛𝚎𝚜𝚜">
+      <h3>𝙴𝚕𝚎𝚐𝚊𝚗𝚝 𝙳𝚛𝚎𝚜𝚜</h3>
+      <p>$60.00</p>
+      <button onclick="addToCart('Elegant Dress')">𝙰𝚍𝚍 𝚝𝚘 𝙲𝚊𝚛𝚝</button>
+    </div>
+  </div>
+  <div class="message" id="message"></div>
+</section>
+
+<section class="features">
+  <div class="feature">🚚 𝙵𝚛𝚎𝚎 𝚂𝚑𝚒𝚙𝚙𝚒𝚗𝚐</div>
+  <div class="feature">🔒 𝚂𝚎𝚌𝚞𝚛𝚎 𝙿𝚊𝚢𝚖𝚎𝚗𝚝𝚜</div>
+  <div class="feature">↩ 𝙴𝚊𝚜𝚢 𝚁𝚎𝚝𝚞𝚛𝚗𝚜</div>
+  <div class="feature">📞 24/7 𝚂𝚞𝚙𝚙𝚘𝚛𝚝</div>
+</section>
+
+<section class="cta">
+  <h2>𝚂𝚞𝚖𝚖𝚎𝚛 𝚂𝚊𝚕𝚎 – 𝚄𝚙 𝚝𝚘 50% 𝙾𝚏𝚏</h2>
+  <button>𝚂𝚑𝚘𝚙 𝚂𝚊𝚕𝚎</button>
+</section>
+
+<section class="newsletter">
+  <h2>𝚂𝚝𝚊𝚢 𝚄𝚙𝚍𝚊𝚝𝚎𝚍</h2>
+  <input type="email" placeholder="𝙴𝚗𝚝𝚎𝚛 𝚢𝚘𝚞𝚛 𝚎𝚖𝚊𝚒𝚕">
+  <button>𝚂𝚞𝚋𝚜𝚌𝚛𝚒𝚋𝚎</button>
+</section>
+
+<footer>
+  <p>© 2026 <span>𝚉𝚊𝚢𝚊𝚗𝚊 𝙰𝚙𝚙𝚎𝚛𝚊𝚕</span> 𝙲𝚕𝚘𝚝𝚑𝚒𝚗𝚐. 𝙰𝚕𝚕 𝚁𝚒𝚐𝚑𝚝𝚜 𝚁𝚎𝚜𝚎𝚛𝚟𝚎𝚍.</p>
+</footer>
+
+<script>
+// Scroll to products
+function scrollToProducts() {
+  document.getElementById("products").scrollIntoView({ behavior: "smooth" });
+}
+
+// Add to cart message
+function addToCart(product) {
+  const msg = document.getElementById("message");
+  msg.innerText = product + " 𝚊𝚍𝚍𝚎𝚍 𝚝𝚘 𝚌𝚊𝚛𝚝!";
+  msg.style.display = "block";
+  setTimeout(() => msg.style.display = "none", 2000);
+}
+
+// Hamburger toggle
+const hamburger = document.getElementById('hamburger');
+const navMenu = document.getElementById('navMenu');
+
+hamburger.addEventListener('click', () => {
+  navMenu.classList.toggle('active');
+});
+
+// Hero image slideshow
+const hero = document.getElementById('hero');
+const heroImages = ['hero.JPG', 'hero1.JPG', 'hero2.JPG', 'hero3.JPG']; // Add more images here
+let currentHero = 0;
+
+function changeHeroBackground() {
+  currentHero = (currentHero + 1) % heroImages.length;
+  hero.style.backgroundImage = `linear-gradient(rgba(179,0,0,0.3), rgba(179,0,0,0.3)), url(${heroImages[currentHero]})`;
+}
+
+setInterval(changeHeroBackground, 5000); // change every 5 seconds
+</script>
+
+</body>
+</html>
